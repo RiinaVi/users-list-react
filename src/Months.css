@@ -1,0 +1,73 @@
+body {
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+
+.red-bg{
+    background: #e55050;
+}
+.green-bg{
+    background: #61ca61;
+}
+.grey-bg{
+    background: grey;
+}
+.blue-bg{
+    background: #5353d7;
+}
+.monthsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 300px;
+    cursor: pointer;
+    position: absolute;
+    left: 30px;
+    top: 75px;
+    border: 10px groove #d9cc89;
+}
+.monthInfo{
+    visibility: hidden;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+    color: black;
+    left: 310px;
+    top: -6px;
+    max-height: 215px;
+    overflow: scroll;
+    cursor: text;
+    border: 15px solid white;
+    transition: all 0s cubic-bezier(0.25, 0.1, 0.59, -0.49) 20ms;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.month{
+    border: 1px solid #3c5541;
+}
+.month:hover{
+    color: lightblue;
+}
+
+.month:hover + .monthInfo{
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.monthInfo:hover{
+    visibility: visible;
+}
+
+#title {
+    position: absolute;
+    left: 90px;
+}
+
+.userInfo{
+    width: 170px;
+    text-align: start;
+}
