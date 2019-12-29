@@ -3,8 +3,6 @@ body {
     font-family: Georgia, serif;
     text-align: center;
 }
-
-
 .red-bg{
     background: #e55050;
 }
@@ -21,10 +19,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    width: 300px;
+    width: 15%;
+    height: fit-content;
+    max-height: 68%;
     cursor: pointer;
     position: absolute;
-    left: 30px;
+    left: 3%;
     top: 75px;
     border: 10px groove #d9cc89;
 }
@@ -35,39 +35,51 @@ body {
     min-width: 160px;
     z-index: 1;
     color: black;
-    left: 310px;
-    top: -6px;
-    max-height: 215px;
-    overflow: scroll;
+    left: 116%;
+    max-height: 100%;
     cursor: text;
-    border: 15px solid white;
-    transition: all 0s cubic-bezier(0.25, 0.1, 0.59, -0.49) 20ms;
+    height: 140%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    font-size: 130%;
+    align-content: flex-start;
+}
+.monthInfo::before{
+    content: '';
+    border: 16px solid transparent;
+    position: absolute;
+    right: 97%;
+    height: 93%;
 }
 .month{
     border: 1px solid #3c5541;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .month:hover{
     color: lightblue;
 }
-
-.month:hover + .monthInfo{
+.month:hover + .monthInfo,
+.month:active + .monthInfo,
+.month:focus + .monthInfo{
     visibility: visible;
-    transition-delay: 0s;
 }
-
+.monthInfo .content{
+    height: 100%;
+    overflow-y: auto;
+}
 .monthInfo:hover{
     visibility: visible;
 }
-
 #title {
     position: absolute;
-    left: 90px;
+    left: 13%;
 }
-
 .userInfo{
     width: 170px;
     text-align: start;
+    inline-size: max-content;
 }

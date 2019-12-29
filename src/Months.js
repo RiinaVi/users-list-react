@@ -5,27 +5,28 @@ import './Months.css';
 export default class Months extends React.Component {
     createMonthTable = users => {
         let monthsList = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-        let monthsContainer = [], month = [], monthInfo = [], counter = 0;
+        let monthsContainer = [], month = [], monthInfo = [],newClassName = '';
         for (let i = 0; i < monthsList.length; i++) {
+            let counter = 0;
             for (let j = 0; j < users.length; j++) {
                 if(new Date(Date.parse(users[j]['dob'])).getMonth()===i){
                     counter++;
                     monthInfo.push(<li key={users[j]['id']} type={'1'} className={'userInfo'}>{(users[j]['firstName']+' '+
-                        users[j]['lastName']).replace(/"/g,"")+'\n'}</li>);
+                        users[j]['lastName'])+'\n'}</li>);
                 }
             }
             if(counter < 3) {
-                month.push(<div className={'month grey-bg'}>{monthsList[i]} </div>);
+                newClassName='month grey-bg';
             } else if(counter < 7) {
-                month.push(<div className={'month blue-bg'}>{monthsList[i]} </div>);
+                newClassName='month blue-bg';
             } else if(counter < 11) {
-                month.push(<div className={'month green-bg'}>{monthsList[i]} </div>);
+                newClassName='month green-bg';
             } else {
-                month.push(<div className={'month red-bg'}>{monthsList[i]} </div>);
+                newClassName='month red-bg';
             }
-            month.push(<div className={'monthInfo'}>{monthInfo}</div>);
+            month.push(<div  onClick={() => {}} className={newClassName}>{monthsList[i]} </div>);
+            month.push(<div className={'monthInfo'}><div className={'content'}>{monthInfo}</div></div>);
             monthInfo = [];
-            counter = 0;
         }
         monthsContainer.push(<div className={'monthsContainer'}>{month}</div>);
         return monthsContainer;
@@ -44,7 +45,7 @@ export default class Months extends React.Component {
     render() {
         return (
             <div className={'mainContainer'}>
-                <h1 id={'title'}>Users` list:</h1>
+                <h1 id={'title'}>Users list:</h1>
                 {this.createMonthTable(this.state.users)}
             </div>
         )
