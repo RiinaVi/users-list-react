@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: Georgia, serif;
+}
+ol {
+    margin: 0;
+}
+h1{
+    text-align: left;
+}
+
+.App{
+    width: 80%;
+    margin: auto;
+}

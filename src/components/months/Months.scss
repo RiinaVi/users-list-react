@@ -1,0 +1,76 @@
+$red-color: #e55050;
+$green-color: #61ca61;
+$grey-color: #717171;
+$blue-color: #5353d7;
+$creamy-color: #f1f1f1;
+.red-bg{
+    background: $red-color;
+}
+.green-bg{
+    background: $green-color;
+}
+.grey-bg{
+    background: $grey-color;
+}
+.blue-bg{
+    background: $blue-color;
+}
+.monthsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    min-width: 90px;
+    position: relative;
+    border: 10px groove mix($creamy-color, yellow);
+    cursor: pointer;
+}
+.monthInfo{
+    visibility: hidden;
+    position: absolute;
+    left: 100%;
+    height: 100%;
+    max-height: 100%;
+    padding: 5px;
+    min-width: 160px;
+    margin-left: 20px;
+    font-size: 130%;
+    background-color: $creamy-color;
+    color: black;
+    cursor: text;
+    &::before{
+        content: '';
+        position: absolute;
+        right: 100%;
+        height: 100%;
+        width: 20px;
+    }
+    &:hover{
+        visibility: visible;
+    }
+    .content{
+        height: 100%;
+        overflow-y: auto;
+        .userInfo{
+            width: 170px;
+            text-align: start;
+            inline-size: max-content;
+        }
+    }
+}
+.month{
+    border: 1px solid mix($green-color, black);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        color: mix($blue-color, $creamy-color, 25%);
+    }
+    &:hover,
+    &:active,
+    &:focus{
+        & + .monthInfo {
+            visibility: visible;
+        }
+    }
+}
